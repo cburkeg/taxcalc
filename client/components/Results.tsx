@@ -1,8 +1,16 @@
 interface ResultsProps {
-  netIncome: number
+  selfIncome: number
+  payeIncome: number
+  otherIncome: number
+  expenses: number
 }
 
-function Results({ netIncome }: ResultsProps) {
+function Results({
+  selfIncome,
+  payeIncome,
+  otherIncome,
+  expenses,
+}: ResultsProps) {
   const taxBrackets = {
     bracket1: 15600,
     bracket2: 53500,
@@ -17,6 +25,12 @@ function Results({ netIncome }: ResultsProps) {
     bracket4: 33,
     bracket5: 39,
   }
+
+  const netIncome =
+    Number(selfIncome) +
+    Number(payeIncome) +
+    Number(otherIncome) -
+    Number(expenses)
 
   let tax = 0
 
@@ -52,13 +66,15 @@ function Results({ netIncome }: ResultsProps) {
     tax = netIncome * (taxRates['bracket1'] / 100)
   }
 
+  const effectiveTaxRate = netIncome != 0 ? (tax / netIncome) * 100 : 0
+
   return (
     <>
       <p>This is the results component</p>
       <p>Tax is equal to: {tax}</p>
+      <p>Effective tax rate is equal to: {effectiveTaxRate}</p>
       <p>
-        Effective tax rate is equal to:{' '}
-        {netIncome != 0 ? (tax / netIncome) * 100 : 0}
+        Your self-employed taxes are: {(effectiveTaxRate / 100) * selfIncome}
       </p>
     </>
   )
