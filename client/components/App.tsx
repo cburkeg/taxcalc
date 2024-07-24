@@ -9,6 +9,12 @@ function App() {
   const [expenses, setExpenses] = useState<number | string>(0)
   const [studentLoan, setStudentLoan] = useState<string | null>(null)
 
+  const netIncome =
+    Number(selfIncome) +
+    Number(payeIncome) +
+    Number(otherIncome) -
+    Number(expenses)
+
   return (
     <>
       <div className="app">
@@ -25,7 +31,7 @@ function App() {
           studentLoan={studentLoan}
           setStudentLoan={setStudentLoan}
         />
-        <Results />
+        <Results netIncome={netIncome} />
       </div>
     </>
   )
