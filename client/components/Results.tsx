@@ -68,11 +68,19 @@ function Results({
 
   const effectiveTaxRate = netIncome != 0 ? (tax / netIncome) * 100 : 0
 
+  function round(number: number, places: number) {
+    return Number(number.toFixed(places))
+  }
+
   return (
     <>
       <p>This is the results component</p>
       <p>Tax is equal to: {tax}</p>
       <p>Effective tax rate is equal to: {effectiveTaxRate}</p>
+      <p>
+        Let&apos;s try round that to two decimal places using:{' '}
+        {round(effectiveTaxRate, 2)}
+      </p>
       <p>
         Your self-employed taxes are: {(effectiveTaxRate / 100) * selfIncome}
       </p>
