@@ -3,6 +3,7 @@ interface ResultsProps {
   payeIncome: number
   otherIncome: number
   expenses: number
+  studentLoan: string | null
 }
 
 function Results({
@@ -10,6 +11,7 @@ function Results({
   payeIncome,
   otherIncome,
   expenses,
+  studentLoan,
 }: ResultsProps) {
   const taxBrackets = {
     bracket1: 15600,
@@ -26,11 +28,7 @@ function Results({
     bracket5: 39,
   }
 
-  const netIncome =
-    Number(selfIncome) +
-    Number(payeIncome) +
-    Number(otherIncome) -
-    Number(expenses)
+  const netIncome = selfIncome + payeIncome + otherIncome - expenses
 
   let tax = 0
 
@@ -72,19 +70,74 @@ function Results({
     return Number(number.toFixed(places))
   }
 
+  // Calculate ACC earner fee:
+
+  const accMinimumIncome = 44250
+  const accMaximumIncome = 142283
+
+  const earnerLevyRate = 0.016
+  const workLevyRate = 0.01
+  const workingSaferLevyRate = 0.0008
+  const studentLoanRate = 0.12
+  // const studentLoanThreshold = 24128 - note that this is for the 2025 year
+  const studentLoanThreshold = 22828 // note that this is for 2024, but it seems that hnry are using this value while also using 2025/26 tax rates
+
+  let earnerLevy = 0
+
+  if (selfIncome < accMinimumIncome) {
+    earnerLevy = accMinimumIncome * earnerLevyRate
+  } else if (selfIncome > accMaximumIncome) {
+    earnerLevy = accMaximumIncome * earnerLevyRate
+  } else {
+    earnerLevy = selfIncome * earnerLevyRate
+  }
+
   return (
-    <>
-      <p>This is the results component</p>
-      <p>Tax is equal to: {tax}</p>
-      <p>Effective tax rate is equal to: {effectiveTaxRate}</p>
+    <div className="results-component">
+      <p>Effective income tax rate: {round(effectiveTaxRate, 2)}%</p>
+
+      <h3>Self-employed and other:</h3>
       <p>
-        Let&apos;s try round that to two decimal places using:{' '}
-        {round(effectiveTaxRate, 2)}
+        - Income tax: $
+        {round(
+          (effectiveTaxRate / 100) * (selfIncome + otherIncome - expenses),
+          2,
+        )}
       </p>
       <p>
-        Your self-employed taxes are: {(effectiveTaxRate / 100) * selfIncome}
+        - Student loan: $
+        {studentLoan === 'yes' && netIncome >= studentLoanThreshold
+          ? round(studentLoanRate * (netIncome - studentLoanThreshold), 2)
+          : 0}
       </p>
-    </>
+      <p>
+        Your self-employed taxes are: $
+        {round((effectiveTaxRate / 100) * selfIncome, 2)}
+      </p>
+      {selfIncome <= accMinimumIncome && (
+        <p>
+          Your income is less than the minimum threshold, so the minimum value
+          of $44,250 has been used to calculate your earner levy
+        </p>
+      )}
+      {selfIncome >= accMaximumIncome && (
+        <p>
+          Your income is greater than the maximum threshold, so the maximum
+          value of $142,283 has been used to calculate your earner levy
+        </p>
+      )}
+      <p>Your self-emplyed ACC earner levy is ${round(earnerLevy, 2)}</p>
+      <p>
+        Your self-employed ACC work levy is $
+        {round(selfIncome * workLevyRate, 2)}
+      </p>
+      <p>
+        Your self-employed ACC working safer levy is $
+        {round(selfIncome * workingSaferLevyRate, 2)}
+      </p>
+
+      <p>Total tax is equal to: ${tax}</p>
+    </div>
   )
 }
 

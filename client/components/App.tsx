@@ -36,6 +36,7 @@ function App() {
           payeIncome={Number(payeIncome)}
           otherIncome={Number(otherIncome)}
           expenses={Number(expenses)}
+          studentLoan={studentLoan}
         />
       </div>
     </>

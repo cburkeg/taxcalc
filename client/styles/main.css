@@ -4,6 +4,12 @@
   gap: 100px;
 }
 
+.app {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
 input {
   border: 1px solid #000000;
   padding: 10px;
