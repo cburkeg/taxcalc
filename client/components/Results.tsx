@@ -20,12 +20,35 @@ function Results({
     bracket4: 180000,
   }
 
+  const adjustedTaxBrackets = {
+    bracket1: 15600 - (payeIncome - expenses),
+    bracket2: 53500 - (payeIncome - expenses),
+    bracket3: 78100 - (payeIncome - expenses),
+    bracket4: 180000 - payeIncome,
+  }
+
+  let currentBracket = 'bracket5'
+  for (const bracket of Object.keys(adjustedTaxBrackets)) {
+    if (adjustedTaxBrackets[bracket] > 0) {
+      currentBracket = bracket
+      break
+    }
+  }
+
   const taxRates = {
     bracket1: 10.5,
     bracket2: 17.5,
     bracket3: 30,
     bracket4: 33,
     bracket5: 39,
+  }
+
+  const netSelfIncome = selfIncome + otherIncome - expenses
+
+  let selfIncomeTax = 0
+
+  if (currentBracket == 'bracket5') {
+    selfIncomeTax = netSelfIncome * taxRates[currentBracket]
   }
 
   const netIncome = selfIncome + payeIncome + otherIncome - expenses
@@ -94,6 +117,7 @@ function Results({
 
   return (
     <div className="results-component">
+      <p>The current bracket is {currentBracket}</p>
       <p>Effective income tax rate: {round(effectiveTaxRate, 2)}%</p>
 
       <h3>Self-employed and other:</h3>
