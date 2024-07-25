@@ -19,29 +19,41 @@ function App() {
   return (
     <>
       <div className="app">
-        <h1 className="text-3xl font-bold underline">Tax calculator</h1>
-        <Input
-          selfIncome={selfIncome}
-          setSelfIncome={setSelfIncome}
-          payeIncome={payeIncome}
-          setPayeIncome={setPayeIncome}
-          otherIncome={otherIncome}
-          setOtherIncome={setOtherIncome}
-          expenses={expenses}
-          setExpenses={setExpenses}
-          studentLoan={studentLoan}
-          setStudentLoan={setStudentLoan}
-          kiwisaverContribution={kiwisaverContribution}
-          setKiwisaverContribution={setKiwisaverContribution}
-        />
-        <Results
-          selfIncome={Number(selfIncome)}
-          payeIncome={Number(payeIncome)}
-          otherIncome={Number(otherIncome)}
-          expenses={Number(expenses)}
-          studentLoan={studentLoan}
-          kiwisaverContribution={kiwisaverContribution}
-        />
+        <div className="hero">
+          <div>
+            <p>Cnr x</p>
+            <img src="./public/images/hnry-logo.svg"></img>
+          </div>
+          <h1>
+            Kia ora, this is Conor Burke-Govey, your new junioe developer ;)
+          </h1>
+        </div>
+        <div className="main">
+          <h2>Tax calculator</h2>
+          <div>
+            <Input
+              selfIncome={selfIncome}
+              setSelfIncome={setSelfIncome}
+              payeIncome={payeIncome}
+              setPayeIncome={setPayeIncome}
+              otherIncome={otherIncome}
+              setOtherIncome={setOtherIncome}
+              expenses={expenses}
+              setExpenses={setExpenses}
+              studentLoan={studentLoan}
+              setStudentLoan={setStudentLoan}
+              setKiwisaverContribution={setKiwisaverContribution}
+            />
+            <Results
+              selfIncome={Number(selfIncome)}
+              payeIncome={Number(payeIncome)}
+              otherIncome={Number(otherIncome)}
+              expenses={Number(expenses)}
+              studentLoan={studentLoan}
+              kiwisaverContribution={kiwisaverContribution}
+            />
+          </div>
+        </div>
       </div>
     </>
   )

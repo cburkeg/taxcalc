@@ -1,13 +1,83 @@
+html {
+  font-family: Oxygen, sans-serif;
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
 
-.app {
+/* .app {
   display: flex;
   flex-direction: row;
   gap: 100px;
+  position: relative;
+  background-image: url('https://hnry.co.nz/img/hero/Hnry-Gradient-Background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+} */
+
+.hero {
+  height: 400px;
+  position: relative;
+  background-image: url('https://hnry.co.nz/img/hero/Hnry-Gradient-Background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding-bottom: 300px;
+  text-align: center;
+  padding-top: 64px;
+}
+
+.hero > div {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hero > div > p {
+  font-size: 64px;
+  color: white;
+}
+
+.hero > div > img {
+  width: auto;
+  height: 300px;
+}
+
+.hero > h1 {
+  padding-top: 24px;
+  color: white;
+}
+
+.wavebg {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.hero::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: -1vw;
+  width: 102vw;
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: 50% 50%;
+  padding-top: 20%;
+  background-image: url('data:image/svg+xml,%3Csvg%20fill%3D%22%23fff%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201920%20300%22%3E%3Cpath%20d%3D%22M0%20300V0c160.8%200%20212.3%2049.2%20252.1%2075.9%2042.3%2028.4%2082.5%2058.5%20174%2059.2%2084%200.7%20136.3-11.7%20197.2-29.6s139.3-36.3%20190.6-36.3c79.9%200%20150%2048.9%20196%2080.8%2046%2031.9%20160.3%20120.3%20267%20120.3%20106.6%200%20210.5-51.5%20298.9-107.1C1687.9%2092.8%201730.6%200%201920%200v300H0z%22%2F%3E%3C%2Fsvg%3E');
 }
 
 input {
@@ -32,4 +102,18 @@ input {
 
 input[type='radio'] {
   margin-right: 10px;
+}
+
+.main {
+  width: 900px;
+  margin: 0 auto 100px;
+}
+
+.main > div {
+  display: flex;
+  gap: 100px;
+}
+
+.main > div > div {
+  width: 50%;
 }
