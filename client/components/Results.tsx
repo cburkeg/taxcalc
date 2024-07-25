@@ -105,15 +105,34 @@ function Results({
   // const studentLoanThreshold = 24128 - note that this is for the 2025 year
   const studentLoanThreshold = 22828 // note that this is for 2024, but it seems that hnry are using this value while also using 2025/26 tax rates
 
+  const selfEmployedAndOtherTax = round(
+    (effectiveTaxRate / 100) * (selfIncome + otherIncome - expenses),
+    2,
+  )
+
+  const studentLoanContributions =
+    studentLoan == 'yes' && netIncome >= studentLoanThreshold
+      ? round(studentLoanRate * (netIncome - studentLoanThreshold), 2)
+      : 0
+
   let earnerLevy = 0
 
   if (selfIncome < accMinimumIncome) {
-    earnerLevy = accMinimumIncome * earnerLevyRate
+    earnerLevy = round(accMinimumIncome * earnerLevyRate, 2)
   } else if (selfIncome > accMaximumIncome) {
-    earnerLevy = accMaximumIncome * earnerLevyRate
+    earnerLevy = round(accMaximumIncome * earnerLevyRate, 2)
   } else {
-    earnerLevy = selfIncome * earnerLevyRate
+    earnerLevy = round(selfIncome * earnerLevyRate, 2)
   }
+
+  const workLevy = round(selfIncome * workLevyRate, 2)
+
+  const workingSaferLevy = round(selfIncome * workingSaferLevyRate, 2)
+
+  const accTotalLevy = round(earnerLevy + workLevy + workingSaferLevy, 2)
+
+  const totalPayments =
+    selfEmployedAndOtherTax + studentLoanContributions + accTotalLevy
 
   return (
     <div className="results-component">
@@ -122,45 +141,79 @@ function Results({
 
       <h3>Self-employed and other:</h3>
       <p>
-        - Income tax: $
-        {round(
-          (effectiveTaxRate / 100) * (selfIncome + otherIncome - expenses),
-          2,
-        )}
+        {' '}
+        - Income tax:{' '}
+        {selfEmployedAndOtherTax.toLocaleString('en-NZ', {
+          style: 'currency',
+          currency: 'NZD',
+        })}
       </p>
-      <p>
-        - Student loan: $
-        {studentLoan === 'yes' && netIncome >= studentLoanThreshold
-          ? round(studentLoanRate * (netIncome - studentLoanThreshold), 2)
-          : 0}
-      </p>
-      <p>
+      {studentLoan == 'yes' && (
+        <p>
+          - Student Loan repayments:{' '}
+          {studentLoanContributions.toLocaleString('en-NZ', {
+            style: 'currency',
+            currency: 'NZD',
+          })}{' '}
+          {netIncome < studentLoanThreshold &&
+            `(your net income is below the repayment threshold of ${studentLoanThreshold.toLocaleString(
+              'en-NZ',
+              {
+                style: 'currency',
+                currency: 'NZD',
+              },
+            )})`}
+        </p>
+      )}
+      <h3>Self-employed</h3>
+      {/* <p>
         Your self-employed taxes are: $
         {round((effectiveTaxRate / 100) * selfIncome, 2)}
+      </p> */}
+      <h4>Estimated ACC levies:</h4>
+      <p>
+        Your total estimated ACC levy is equal to{' '}
+        {accTotalLevy.toLocaleString('en-NZ', {
+          style: 'currency',
+          currency: 'NZD',
+        })}
       </p>
+      <p>This total comprises:</p>
+
+      <p>- a self-emplyed ACC earner levy of ${earnerLevy}</p>
       {selfIncome <= accMinimumIncome && (
         <p>
-          Your income is less than the minimum threshold, so the minimum value
-          of $44,250 has been used to calculate your earner levy
+          (your income is less than the minimum threshold, so the minimum liable
+          income of $44,250 has been used to calculate your earner levy)
         </p>
       )}
       {selfIncome >= accMaximumIncome && (
         <p>
-          Your income is greater than the maximum threshold, so the maximum
-          value of $142,283 has been used to calculate your earner levy
+          (your income is greater than the maximum threshold, so the maximum
+          liable income of $142,283 has been used to calculate your earner levy)
         </p>
       )}
-      <p>Your self-emplyed ACC earner levy is ${round(earnerLevy, 2)}</p>
       <p>
-        Your self-employed ACC work levy is $
-        {round(selfIncome * workLevyRate, 2)}
+        - a self-employed ACC Work levy of{' '}
+        {workLevy.toLocaleString('en-NZ', {
+          style: 'currency',
+          currency: 'NZD',
+        })}
       </p>
       <p>
-        Your self-employed ACC working safer levy is $
-        {round(selfIncome * workingSaferLevyRate, 2)}
+        - a self-employed Working Safer levy of{' '}
+        {workingSaferLevy.toLocaleString('en-NZ', {
+          style: 'currency',
+          currency: 'NZD',
+        })}
       </p>
-
-      <p>Total tax is equal to: ${tax}</p>
+      <h3>Estimated total:</h3>
+      <p>
+        {totalPayments.toLocaleString('en-NZ', {
+          style: 'currency',
+          currency: 'NZD',
+        })}
+      </p>
     </div>
   )
 }
