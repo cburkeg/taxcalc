@@ -8,6 +8,7 @@ function App() {
   const [otherIncome, setOtherIncome] = useState<number | string>(0)
   const [expenses, setExpenses] = useState<number | string>(0)
   const [studentLoan, setStudentLoan] = useState<string | null>(null)
+  const [kiwisaverContribution, setKiwisaverContribution] = useState<number>(0)
 
   // const netIncome =
   //   Number(selfIncome) +
@@ -30,6 +31,8 @@ function App() {
           setExpenses={setExpenses}
           studentLoan={studentLoan}
           setStudentLoan={setStudentLoan}
+          kiwisaverContribution={kiwisaverContribution}
+          setKiwisaverContribution={setKiwisaverContribution}
         />
         <Results
           selfIncome={Number(selfIncome)}
@@ -37,6 +40,7 @@ function App() {
           otherIncome={Number(otherIncome)}
           expenses={Number(expenses)}
           studentLoan={studentLoan}
+          kiwisaverContribution={kiwisaverContribution}
         />
       </div>
     </>

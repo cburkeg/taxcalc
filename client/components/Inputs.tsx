@@ -13,6 +13,7 @@ interface InputProps {
   setExpenses: React.Dispatch<React.SetStateAction<number | string>>
   studentLoan: string | null
   setStudentLoan: React.Dispatch<React.SetStateAction<string | null>>
+  setKiwisaverContribution: React.Dispatch<React.SetStateAction<number>>
 }
 
 function Input({
@@ -26,8 +27,9 @@ function Input({
   setExpenses,
   studentLoan,
   setStudentLoan,
+  setKiwisaverContribution,
 }: InputProps) {
-  function handleEvent(
+  function validateInput(
     event: ChangeEvent<HTMLInputElement>,
     state: number | string,
     setState: React.Dispatch<React.SetStateAction<number | string>>,
@@ -69,15 +71,8 @@ function Input({
 
   return (
     <div className="input-component">
-      <p>Hello - the self income is {selfIncome}</p>
-      <p>PAYE income is {payeIncome}</p>
-      <p>Other income is {otherIncome}</p>
-      <p>Expenses are {expenses}</p>
-      <p>
-        The current value of student loan is{' '}
-        {studentLoan ? studentLoan : 'null'}
-      </p>
       <div>
+        <h2>Tax calculator for Financial Year 2025/26</h2>
         <p>
           This financial year from all my self-employed, contracting and
           freelancing income, excluding GST, I will earn:
@@ -87,7 +82,7 @@ function Input({
           type="text"
           key="selfemployedincomeinput"
           name="selfemployedincomeinput"
-          onChange={(event) => handleEvent(event, selfIncome, setSelfIncome)}
+          onChange={(event) => validateInput(event, selfIncome, setSelfIncome)}
         ></input>
       </div>
       <div>
@@ -97,7 +92,7 @@ function Input({
           type="text"
           key="payeincomeinput"
           name="payeincomeinput"
-          onChange={(event) => handleEvent(event, payeIncome, setPayeIncome)}
+          onChange={(event) => validateInput(event, payeIncome, setPayeIncome)}
         ></input>
       </div>
       <div>
@@ -110,7 +105,9 @@ function Input({
           type="text"
           key="otherincomeinput"
           name="otherincomeinput"
-          onChange={(event) => handleEvent(event, otherIncome, setOtherIncome)}
+          onChange={(event) =>
+            validateInput(event, otherIncome, setOtherIncome)
+          }
         ></input>
       </div>
       <div>
@@ -120,7 +117,7 @@ function Input({
           type="text"
           key="expensesinput"
           name="expensesinput"
-          onChange={(event) => handleEvent(event, expenses, setExpenses)}
+          onChange={(event) => validateInput(event, expenses, setExpenses)}
         ></input>
       </div>
       <div className="radiobuttongroup">
@@ -149,6 +146,26 @@ function Input({
           />
           No
         </label>
+      </div>
+      <div>
+        {' '}
+        <p>I would like to make voluntary KiwiSaver contributions of:</p>
+        <select
+          aria-label="Kiwisaver voluntary contribution"
+          key={'kiwisaverinput'}
+          name="kiwisaverinput"
+          defaultValue={0}
+          onChange={(event) =>
+            setKiwisaverContribution(Number(event.target.value))
+          }
+        >
+          <option value={0}>0%</option>
+          <option value={0.03}>3%</option>
+          <option value={0.04}>4%</option>
+          <option value={0.06}>6%</option>
+          <option value={0.08}>8%</option>
+          <option value={0.1}>10%</option>
+        </select>
       </div>
     </div>
   )

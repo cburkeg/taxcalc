@@ -4,6 +4,7 @@ interface ResultsProps {
   otherIncome: number
   expenses: number
   studentLoan: string | null
+  kiwisaverContribution: number
 }
 
 function Results({
@@ -12,6 +13,7 @@ function Results({
   otherIncome,
   expenses,
   studentLoan,
+  kiwisaverContribution,
 }: ResultsProps) {
   const taxBrackets = {
     bracket1: 15600,
@@ -125,6 +127,8 @@ function Results({
     earnerLevy = round(selfIncome * earnerLevyRate, 2)
   }
 
+  const totalKiwisaverContribution = kiwisaverContribution * selfIncome
+
   const workLevy = round(selfIncome * workLevyRate, 2)
 
   const workingSaferLevy = round(selfIncome * workingSaferLevyRate, 2)
@@ -132,11 +136,14 @@ function Results({
   const accTotalLevy = round(earnerLevy + workLevy + workingSaferLevy, 2)
 
   const totalPayments =
-    selfEmployedAndOtherTax + studentLoanContributions + accTotalLevy
+    selfEmployedAndOtherTax +
+    studentLoanContributions +
+    accTotalLevy +
+    totalKiwisaverContribution
 
   return (
     <div className="results-component">
-      <p>The current bracket is {currentBracket}</p>
+      <h2>Here are your results:</h2>
       <p>Effective income tax rate: {round(effectiveTaxRate, 2)}%</p>
 
       <h3>Self-employed and other:</h3>
@@ -165,7 +172,7 @@ function Results({
             )})`}
         </p>
       )}
-      <h3>Self-employed</h3>
+      <h3>Self-employed:</h3>
       {/* <p>
         Your self-employed taxes are: $
         {round((effectiveTaxRate / 100) * selfIncome, 2)}
@@ -180,7 +187,7 @@ function Results({
       </p>
       <p>This total comprises:</p>
 
-      <p>- a self-emplyed ACC earner levy of ${earnerLevy}</p>
+      <p>- a self-employed ACC earner levy of ${earnerLevy}</p>
       {selfIncome <= accMinimumIncome && (
         <p>
           (your income is less than the minimum threshold, so the minimum liable
@@ -203,6 +210,13 @@ function Results({
       <p>
         - a self-employed Working Safer levy of{' '}
         {workingSaferLevy.toLocaleString('en-NZ', {
+          style: 'currency',
+          currency: 'NZD',
+        })}
+      </p>
+      <p>
+        Your KiwiSaver contributions:{' '}
+        {totalKiwisaverContribution.toLocaleString('en-NZ', {
           style: 'currency',
           currency: 'NZD',
         })}
