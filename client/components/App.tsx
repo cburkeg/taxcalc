@@ -10,19 +10,12 @@ function App() {
   const [studentLoan, setStudentLoan] = useState<string | null>(null)
   const [kiwisaverContribution, setKiwisaverContribution] = useState<number>(0)
 
-  // const netIncome =
-  //   Number(selfIncome) +
-  //   Number(payeIncome) +
-  //   Number(otherIncome) -
-  //   Number(expenses)
-
   return (
     <>
       <div className="app">
         <div className="hero">
           <div>
-            <p>Cnr x</p>
-            <img src="./public/images/hnry-logo.svg"></img>
+            <img src="/images/hnry-logo-combinedv2.svg"></img>
           </div>
           <h1>
             Kia ora, this is Conor Burke-Govey, your new junioe developer ;)

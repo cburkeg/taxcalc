@@ -164,33 +164,39 @@ function Results({
       </p>
       <p>This total comprises:</p>
 
-      <p>- a self-employed ACC earner levy of ${earnerLevy}</p>
-      {selfIncome <= accMinimumIncome && (
-        <p>
-          (your income is less than the minimum threshold, so the minimum liable
-          income of $44,250 has been used to calculate your earner levy)
-        </p>
-      )}
-      {selfIncome >= accMaximumIncome && (
-        <p>
-          (your income is greater than the maximum threshold, so the maximum
-          liable income of $142,283 has been used to calculate your earner levy)
-        </p>
-      )}
-      <p>
-        - a self-employed ACC Work levy of{' '}
-        {workLevy.toLocaleString('en-NZ', {
-          style: 'currency',
-          currency: 'NZD',
-        })}
-      </p>
-      <p>
-        - a self-employed Working Safer levy of{' '}
-        {workingSaferLevy.toLocaleString('en-NZ', {
-          style: 'currency',
-          currency: 'NZD',
-        })}
-      </p>
+      <ul>
+        <li>
+          a self-employed ACC earner levy of ${earnerLevy}
+          {selfIncome <= accMinimumIncome && (
+            <p>
+              (your income is less than the minimum threshold, so the minimum
+              liable income of $44,250 has been used to calculate your earner
+              levy)
+            </p>
+          )}
+          {selfIncome >= accMaximumIncome && (
+            <p>
+              (your income is greater than the maximum threshold, so the maximum
+              liable income of $142,283 has been used to calculate your earner
+              levy)
+            </p>
+          )}{' '}
+        </li>
+        <li>
+          a self-employed ACC Work levy of{' '}
+          {workLevy.toLocaleString('en-NZ', {
+            style: 'currency',
+            currency: 'NZD',
+          })}
+        </li>
+        <li>
+          a self-employed Working Safer levy of{' '}
+          {workingSaferLevy.toLocaleString('en-NZ', {
+            style: 'currency',
+            currency: 'NZD',
+          })}
+        </li>
+      </ul>
       <p>
         Your KiwiSaver contributions:{' '}
         {totalKiwisaverContribution.toLocaleString('en-NZ', {
