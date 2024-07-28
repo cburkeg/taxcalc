@@ -36,10 +36,10 @@ function App() {
                   as a patent attorney.
                 </li>
               </ul>
-              You can see examples of my work below, including my tax calculator
-              that&apos;s based on Hnry&apos;s (with a few differences). This
-              was a lot of fun to make on my own, but I&apos;d prefer to build
-              even cooler stuff with you all!
+              You can see examples of my work below, including my version of
+              Hnry&apos;s 2025/2026 tax calculator (with a few differences).
+              This was a lot of fun to make on my own, but I&apos;d prefer to
+              build even cooler stuff with you all!
             </p>
           </div>
         </div>
@@ -97,7 +97,7 @@ function App() {
                   rel="noreferrer"
                 >
                   <img
-                    src="/images/tabletalk2.png"
+                    src="/images/tabletalk5.png"
                     alt="A preview of the table show in TableTalk"
                   ></img>
                 </a>
@@ -109,7 +109,7 @@ function App() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Table Talk
+                    TableTalk
                   </a>{' '}
                   <a
                     href="https://github.com/cburkeg/TableTalk"
@@ -140,38 +140,142 @@ function App() {
 
             <div className="item">
               <div className="thumbnail">
-                <img src="/images/tabletalk.png"></img>
+                <a
+                  href="https://growgrub-conor.pushed.nz/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src="/images/growgrub.png" alt="Daily tasks"></img>
+                </a>
               </div>
               <div className="description">
-                <h2>Table Talk </h2>
+                <h2>
+                  {' '}
+                  <a
+                    href="https://growgrub-conor.pushed.nz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Grow-grub
+                  </a>{' '}
+                  <a
+                    href="https://github.com/cburkeg/grow-grub"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src="/images/github-mark.svg"
+                      alt="github link"
+                      height={'28px'}
+                    />
+                  </a>
+                </h2>
                 <p>
-                  This is where the portfolio will go. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Adipisci libero, obcaecati
-                  aspernatur provident perferendis incidunt quos inventore sed,
-                  earum quisquam dolorem dolor quidem repellat! Omnis architecto
-                  pariatur unde ex laudantium!
+                  Grow-grub is a full-stack companion app for gardeners that was
+                  developed as our final group project at Dev Academy. The app
+                  helps users plan their gardens, track plant progress, and
+                  provides care instructions and harvesting tips. It also
+                  monitors watering schedules and generates reminders based on
+                  each plant&apos;s needs.
+                </p>
+                <p>
+                  The project was completed in one week by myself and six other
+                  developers. We were working right up until code freeze, so
+                  there are some features that are yet to be implemented!
                 </p>
               </div>
             </div>
 
             <div className="item">
               <div className="thumbnail">
-                <img src="/images/tabletalk.png"></img>
+                <a
+                  href="https://cburkeg.github.io/N-body-simulator/index.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/images/nbody2.png"
+                    alt="Chaotic motion by N bodies interacting"
+                  />
+                </a>
               </div>
               <div className="description">
-                <h2>Table Talk</h2>
+                <h2>
+                  {' '}
+                  <a
+                    href="https://cburkeg.github.io/N-body-simulator/index.html"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    N-body simulator{' '}
+                    <a
+                      href="https://github.com/cburkeg/N-body-simulator"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img
+                        src="/images/github-mark.svg"
+                        alt="github link"
+                        height={'28px'}
+                      />
+                    </a>
+                  </a>
+                </h2>
                 <p>
-                  This is where the portfolio will go. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Adipisci libero, obcaecati
-                  aspernatur provident perferendis incidunt quos inventore sed,
-                  earum quisquam dolorem dolor quidem repellat! Omnis architecto
-                  pariatur unde ex laudantium!
+                  This a simulation that models gravitational interactions
+                  between multiple bodies in a 2D space. The simulation
+                  visualises the movement of the bodies over time, and you can
+                  get some cool patterns and chaotic motion if the initial
+                  conditions are right. Try running the sim with N=5 at 50,000
+                  steps a few times.
+                </p>
+                <p>
+                  The simulation does not model collisions between bodies, so
+                  they tend fly off at extreme angles when they get close to one
+                  another. It also isn&apos;t optimised and the time complexity
+                  is proportional to N squared, so be careful!
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="footer">This is where the footer will go.</div>
+        <div className="footer">
+          <div>
+            <h1>Go on, do it!</h1>
+            <p>Get in touch with me!</p>
+            <div className="icons">
+              <a
+                href="https://github.com/cburkeg/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/github-mark-white.svg"
+                  alt="github link"
+                  height={'56px'}
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/conor-burke-govey/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/LinkedIn_icon.svg"
+                  alt="linkedin link"
+                  height={'56px'}
+                />
+              </a>
+              <a href="mailto:cburkeg@gmail.com">
+                <img
+                  src="/images/Gmail-icon.svg"
+                  alt="github link"
+                  height={'56px'}
+                />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

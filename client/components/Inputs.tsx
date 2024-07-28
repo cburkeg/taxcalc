@@ -16,7 +16,7 @@ interface InputProps {
   setKiwisaverContribution: React.Dispatch<React.SetStateAction<number>>
 }
 
-function Input({
+const Input = ({
   selfIncome,
   setSelfIncome,
   payeIncome,
@@ -28,12 +28,12 @@ function Input({
   studentLoan,
   setStudentLoan,
   setKiwisaverContribution,
-}: InputProps) {
-  function validateInput(
+}: InputProps) => {
+  const validateInput = (
     event: ChangeEvent<HTMLInputElement>,
     state: number | string,
     setState: React.Dispatch<React.SetStateAction<number | string>>,
-  ) {
+  ) => {
     const value = event.target.value
 
     if (value == '') {

@@ -21,13 +21,12 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
   text-align: center;
-  padding: 64px 48px 300px;
+  padding: 64px 48px 400px;
 }
 
 .hero > div {
   display: flex;
   flex-direction: column;
-  gap: auto;
   max-width: 1000px;
   justify-content: center;
   align-items: center;
@@ -116,7 +115,7 @@ input[type='radio'] {
 
 .portfolio > div {
   max-width: 1000px;
-  margin: 0 auto 50px;
+  margin: 0 auto;
   padding: 48px 0 4px;
 }
 
@@ -166,6 +165,31 @@ input[type='radio'] {
   background-size: 0;
   background-position: 50% 20%;
   position: relative;
+  overflow: hidden;
+}
+
+.footer > div {
+  max-width: 1000px;
+  font-family: Oxygen, sans-serif;
+  margin: 48px auto;
+  text-align: center;
+  padding-bottom: 48px;
+}
+
+.footer > div > h1 {
+  font-size: 48px;
+}
+
+.footer > div > p {
+  font-size: 24px;
+}
+
+.footer .icons {
+  margin-top: 24px;
+}
+
+.footer .icons a {
+  margin: 12px;
 }
 
 .footer:before {
@@ -179,4 +203,8 @@ input[type='radio'] {
   background-size: cover;
   background-color: #5d5096;
   padding-top: 15%;
+}
+
+a {
+  color: inherit;
 }
