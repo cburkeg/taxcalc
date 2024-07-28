@@ -21,7 +21,7 @@ html {
 } */
 
 .hero {
-  height: 400px;
+  height: auto;
   position: relative;
   background-image: url('https://hnry.co.nz/img/hero/Hnry-Gradient-Background.jpg');
   background-size: cover;
@@ -35,8 +35,8 @@ html {
 
 .hero > div {
   display: flex;
-  flex-direction: row;
-  gap: 100px;
+  flex-direction: column;
+  gap: auto;
   max-width: 1000px;
   justify-content: center;
   align-items: center;
@@ -44,8 +44,9 @@ html {
 }
 
 .hero > div > p {
-  font-size: 64px;
+  font-size: 24px;
   color: white;
+  text-align: justify;
 }
 
 .hero > div > img {

@@ -124,31 +124,34 @@ function Results({
       <p>Effective income tax rate: {round(effectiveTaxRate, 2)}%</p>
 
       <h3>Self-employed and other:</h3>
-      <p>
-        {' '}
-        - Income tax:{' '}
-        {selfEmployedAndOtherTax.toLocaleString('en-NZ', {
-          style: 'currency',
-          currency: 'NZD',
-        })}
-      </p>
-      {studentLoan == 'yes' && (
-        <p>
-          - Student Loan repayments:{' '}
-          {studentLoanContributions.toLocaleString('en-NZ', {
+      <ul>
+        <li>
+          Income tax:{' '}
+          {selfEmployedAndOtherTax.toLocaleString('en-NZ', {
             style: 'currency',
             currency: 'NZD',
-          })}{' '}
-          {netIncome < studentLoanThreshold &&
-            `(your net income is below the repayment threshold of ${studentLoanThreshold.toLocaleString(
-              'en-NZ',
-              {
-                style: 'currency',
-                currency: 'NZD',
-              },
-            )})`}
-        </p>
-      )}
+          })}
+        </li>
+        {studentLoan == 'yes' && (
+          <li>
+            Student Loan repayments:{' '}
+            {studentLoanContributions.toLocaleString('en-NZ', {
+              style: 'currency',
+              currency: 'NZD',
+            })}{' '}
+            {netIncome < studentLoanThreshold && (
+              <p>
+                (your net income is below the repayment threshold of $
+                {studentLoanThreshold.toLocaleString('en-NZ', {
+                  style: 'currency',
+                  currency: 'NZD',
+                })}
+                )
+              </p>
+            )}
+          </li>
+        )}{' '}
+      </ul>
       <h3>Self-employed:</h3>
       {/* <p>
         Your self-employed taxes are: $

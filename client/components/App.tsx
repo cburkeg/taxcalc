@@ -17,12 +17,38 @@ function App() {
           <div>
             <img src="/images/hnry-logo-combinedv2.svg"></img>
           </div>
+          <h1>Kia ora! 👋 </h1>
           <h1>
-            Kia ora, this is Conor Burke-Govey, your new junioe developer ;)
+            My name&apos;s Conor, and I&apos;d love to join Hnry as a graduate
+            engineer!
           </h1>
+          <div>
+            <p>
+              {' '}
+              I&apos;d make a great member of your team because I have:
+              <ul>
+                <li>a quantitative background in physics and maths,</li>
+                <li>
+                  experience working in highly regulated environments, and{' '}
+                </li>
+                <li>
+                  strong communication and collaboration skills from my career
+                  as a patent attorney.
+                </li>
+              </ul>
+              You can see examples of my work below, including my tax calculator
+              that&apos;s based on Hnry&apos;s (with a few differences). This
+              was a lot of fun to make on my own, but I&apos;d prefer to build
+              even cooler stuff with you!
+            </p>
+          </div>
         </div>
         <div className="main">
-          <h2>Tax calculator</h2>
+          <h1>Tax calculator</h1>
+          <p>
+            Note: this calculator is built purely for fun, so don&apos;t use it
+            for anything important. Seriously!
+          </p>
           <div>
             <Input
               selfIncome={selfIncome}
