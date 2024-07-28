@@ -91,16 +91,49 @@ function App() {
             <h1>Portfolio</h1>
             <div className="item">
               <div className="thumbnail">
-                <img src="/images/tabletalk.png"></img>
+                <a
+                  href="http://tabletalk.pushed.nz/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="/images/tabletalk2.png"
+                    alt="A preview of the table show in TableTalk"
+                  ></img>
+                </a>
               </div>
               <div className="description">
-                <h2>Table Talk</h2>
+                <h2>
+                  <a
+                    href="http://tabletalk.pushed.nz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Table Talk
+                  </a>{' '}
+                  <a
+                    href="https://github.com/cburkeg/TableTalk"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src="/images/github-mark.svg"
+                      alt="github link"
+                      height={'28px'}
+                    />
+                  </a>
+                </h2>
                 <p>
-                  This is where the portfolio will go. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Adipisci libero, obcaecati
-                  aspernatur provident perferendis incidunt quos inventore sed,
-                  earum quisquam dolorem dolor quidem repellat! Omnis architecto
-                  pariatur unde ex laudantium!
+                  TableTalk is a front-end interface for managing and
+                  interacting with data from a back-end database. The interface
+                  supports all CRUD operations. Data that is displayed can be
+                  filtered by field and value.
+                </p>
+                <p>
+                  The interface was originally designed for inventory management
+                  but can be used with JSON data of any shape. The deployed
+                  website uses placeholder seed data generated with ChatGPT, so
+                  please feel free to try out the CRUD tools!
                 </p>
               </div>
             </div>
@@ -110,7 +143,7 @@ function App() {
                 <img src="/images/tabletalk.png"></img>
               </div>
               <div className="description">
-                <h2>Table Talk</h2>
+                <h2>Table Talk </h2>
                 <p>
                   This is where the portfolio will go. Lorem ipsum dolor sit
                   amet consectetur adipisicing elit. Adipisci libero, obcaecati
