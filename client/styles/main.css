@@ -208,3 +208,7 @@ input[type='radio'] {
 a {
   color: inherit;
 }
+
+.disclaimer {
+  font-size: 12px;
+}

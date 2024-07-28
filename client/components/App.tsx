@@ -278,6 +278,11 @@ function App() {
               </a>
             </div>
           </div>
+
+          <p className="disclaimer">
+            Disclaimer: all copyrighted material property of Hnry. This website
+            is not endorsed or affiliated with Hnry in any way.
+          </p>
         </div>
       </div>
     </>
