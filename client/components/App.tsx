@@ -43,55 +43,102 @@ function App() {
             </p>
           </div>
         </div>
-        <div className="main">
-          <div className="taxcalc">
-            <h1>
-              Tax calculator{' '}
-              <a
-                href="https://github.com/cburkeg/taxcalc"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/github-mark.svg"
-                  alt="github link"
-                  height={'28px'}
-                />
-              </a>
-            </h1>
-            <p>
-              Note: this calculator is built purely for fun, so don&apos;t use
-              it for anything important. Seriously!
-            </p>
-            <div>
-              <Input
-                selfIncome={selfIncome}
-                setSelfIncome={setSelfIncome}
-                payeIncome={payeIncome}
-                setPayeIncome={setPayeIncome}
-                otherIncome={otherIncome}
-                setOtherIncome={setOtherIncome}
-                expenses={expenses}
-                setExpenses={setExpenses}
-                studentLoan={studentLoan}
-                setStudentLoan={setStudentLoan}
-                setKiwisaverContribution={setKiwisaverContribution}
+        <div className="taxcalc">
+          <h1>
+            Tax calculator{' '}
+            <a
+              href="https://github.com/cburkeg/taxcalc"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="/images/github-mark.svg"
+                alt="github link"
+                height={'28px'}
               />
-              <Results
-                selfIncome={Number(selfIncome)}
-                payeIncome={Number(payeIncome)}
-                otherIncome={Number(otherIncome)}
-                expenses={Number(expenses)}
-                studentLoan={studentLoan}
-                kiwisaverContribution={kiwisaverContribution}
-              />
+            </a>
+          </h1>
+          <p>
+            Note: this calculator is built purely for fun, so don&apos;t use it
+            for anything important. Seriously!
+          </p>
+          <div>
+            <Input
+              selfIncome={selfIncome}
+              setSelfIncome={setSelfIncome}
+              payeIncome={payeIncome}
+              setPayeIncome={setPayeIncome}
+              otherIncome={otherIncome}
+              setOtherIncome={setOtherIncome}
+              expenses={expenses}
+              setExpenses={setExpenses}
+              studentLoan={studentLoan}
+              setStudentLoan={setStudentLoan}
+              setKiwisaverContribution={setKiwisaverContribution}
+            />
+            <Results
+              selfIncome={Number(selfIncome)}
+              payeIncome={Number(payeIncome)}
+              otherIncome={Number(otherIncome)}
+              expenses={Number(expenses)}
+              studentLoan={studentLoan}
+              kiwisaverContribution={kiwisaverContribution}
+            />
+          </div>
+        </div>
+        <div className="portfolio">
+          <div>
+            <h1>Portfolio</h1>
+            <div className="item">
+              <div className="thumbnail">
+                <img src="/images/tabletalk.png"></img>
+              </div>
+              <div className="description">
+                <h2>Table Talk</h2>
+                <p>
+                  This is where the portfolio will go. Lorem ipsum dolor sit
+                  amet consectetur adipisicing elit. Adipisci libero, obcaecati
+                  aspernatur provident perferendis incidunt quos inventore sed,
+                  earum quisquam dolorem dolor quidem repellat! Omnis architecto
+                  pariatur unde ex laudantium!
+                </p>
+              </div>
+            </div>
+
+            <div className="item">
+              <div className="thumbnail">
+                <img src="/images/tabletalk.png"></img>
+              </div>
+              <div className="description">
+                <h2>Table Talk</h2>
+                <p>
+                  This is where the portfolio will go. Lorem ipsum dolor sit
+                  amet consectetur adipisicing elit. Adipisci libero, obcaecati
+                  aspernatur provident perferendis incidunt quos inventore sed,
+                  earum quisquam dolorem dolor quidem repellat! Omnis architecto
+                  pariatur unde ex laudantium!
+                </p>
+              </div>
+            </div>
+
+            <div className="item">
+              <div className="thumbnail">
+                <img src="/images/tabletalk.png"></img>
+              </div>
+              <div className="description">
+                <h2>Table Talk</h2>
+                <p>
+                  This is where the portfolio will go. Lorem ipsum dolor sit
+                  amet consectetur adipisicing elit. Adipisci libero, obcaecati
+                  aspernatur provident perferendis incidunt quos inventore sed,
+                  earum quisquam dolorem dolor quidem repellat! Omnis architecto
+                  pariatur unde ex laudantium!
+                </p>
+              </div>
             </div>
           </div>
-          <div className="portfolio">
-            <p>This is where the portfolio will go.</p>
-          </div>
-          <div className="footer">This is where the footer will go.</div>
         </div>
+        <div className="footer">This is where the footer will go.</div>
       </div>
     </>
   )

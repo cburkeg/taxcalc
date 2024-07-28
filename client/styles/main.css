@@ -1,5 +1,9 @@
 html {
-  font-family: Oxygen, sans-serif;
+  font-family: Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
 }
 
 .input-container {
@@ -28,9 +32,8 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  padding-bottom: 300px;
   text-align: center;
-  padding-top: 64px;
+  padding: 64px 48px 300px;
 }
 
 .hero > div {
@@ -43,10 +46,15 @@ html {
   margin: 0 auto;
 }
 
+.hero > h1 {
+  font-family: Oxygen, sans-serif;
+}
+
 .hero > div > p {
   font-size: 24px;
   color: white;
   text-align: justify;
+  line-height: 36px;
 }
 
 .hero > div > img {
@@ -105,27 +113,91 @@ input[type='radio'] {
   margin-right: 10px;
 }
 
-.main {
-  width: 900px;
-  margin: 0 auto 100px;
-}
-
-.main > div {
+.taxcalc {
+  max-width: 1000px;
   margin: 0 auto 50px;
 }
 
-.main > div > div {
+.taxcalc > div {
   display: flex;
   gap: 100px;
 }
 
-.main > div > div > div {
+.taxcalc > div > div {
   width: 50%;
 }
 
 .portfolio {
-  background-image: url('https://hnry.co.nz/img/hero/Hnry-Gradient-Background.jpg');
+  background-color: #f8f7fc;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.portfolio > div {
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  padding: 48px 0 4px;
+}
+
+.portfolio .item {
+  display: flex;
+  margin: 48px auto;
+}
+
+.portfolio .thumbnail {
+  width: 30%;
+  margin-right: 48px;
+}
+
+.portfolio .thumbnail img {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+}
+
+.portfolio .description {
+  width: 70%;
+  text-align: left;
+}
+
+.portfolio .description h2 {
+  margin-top: 0;
+}
+
+.portfolio .description p {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.portfolio > div > h1 {
+  text-align: justify;
+}
+
+.portfolio > div > div {
+  margin: 0 auto 50px;
+}
+
+.footer {
+  background-size: contain;
+  background-color: #5d5096;
+  color: #f8f7fc;
+  padding-top: 15%;
+  background-size: 0;
+  background-position: 50% 20%;
+  position: relative;
+}
+
+.footer:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: -1vw;
+  width: 102vw;
+  background-image: url('https://hnry.co.nz/img/svg/border-wavy-footer.svg?_cchid=d15c87e5e2aa9d74dd7d7b1ee2472891');
   background-size: cover;
-  background-repeat: repeat-x;
-  background-position: 50% 50%;
+  background-color: #f8f7fc;
+  padding-top: 15%;
 }
