@@ -15,7 +15,7 @@ function App() {
       <div className="app">
         <div className="hero">
           <div>
-            <img src="/images/hnry-logo-combinedv2.svg"></img>
+            <img src="/images/hnry-logo-combinedv2.svg" alt="cnr x hnry"></img>
           </div>
           <h1>Kia ora! 👋 </h1>
           <h1>
@@ -39,39 +39,58 @@ function App() {
               You can see examples of my work below, including my tax calculator
               that&apos;s based on Hnry&apos;s (with a few differences). This
               was a lot of fun to make on my own, but I&apos;d prefer to build
-              even cooler stuff with you!
+              even cooler stuff with you all!
             </p>
           </div>
         </div>
         <div className="main">
-          <h1>Tax calculator</h1>
-          <p>
-            Note: this calculator is built purely for fun, so don&apos;t use it
-            for anything important. Seriously!
-          </p>
-          <div>
-            <Input
-              selfIncome={selfIncome}
-              setSelfIncome={setSelfIncome}
-              payeIncome={payeIncome}
-              setPayeIncome={setPayeIncome}
-              otherIncome={otherIncome}
-              setOtherIncome={setOtherIncome}
-              expenses={expenses}
-              setExpenses={setExpenses}
-              studentLoan={studentLoan}
-              setStudentLoan={setStudentLoan}
-              setKiwisaverContribution={setKiwisaverContribution}
-            />
-            <Results
-              selfIncome={Number(selfIncome)}
-              payeIncome={Number(payeIncome)}
-              otherIncome={Number(otherIncome)}
-              expenses={Number(expenses)}
-              studentLoan={studentLoan}
-              kiwisaverContribution={kiwisaverContribution}
-            />
+          <div className="taxcalc">
+            <h1>
+              Tax calculator{' '}
+              <a
+                href="https://github.com/cburkeg/taxcalc"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/github-mark.svg"
+                  alt="github link"
+                  height={'28px'}
+                />
+              </a>
+            </h1>
+            <p>
+              Note: this calculator is built purely for fun, so don&apos;t use
+              it for anything important. Seriously!
+            </p>
+            <div>
+              <Input
+                selfIncome={selfIncome}
+                setSelfIncome={setSelfIncome}
+                payeIncome={payeIncome}
+                setPayeIncome={setPayeIncome}
+                otherIncome={otherIncome}
+                setOtherIncome={setOtherIncome}
+                expenses={expenses}
+                setExpenses={setExpenses}
+                studentLoan={studentLoan}
+                setStudentLoan={setStudentLoan}
+                setKiwisaverContribution={setKiwisaverContribution}
+              />
+              <Results
+                selfIncome={Number(selfIncome)}
+                payeIncome={Number(payeIncome)}
+                otherIncome={Number(otherIncome)}
+                expenses={Number(expenses)}
+                studentLoan={studentLoan}
+                kiwisaverContribution={kiwisaverContribution}
+              />
+            </div>
           </div>
+          <div className="portfolio">
+            <p>This is where the portfolio will go.</p>
+          </div>
+          <div className="footer">This is where the footer will go.</div>
         </div>
       </div>
     </>

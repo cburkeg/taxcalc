@@ -111,10 +111,21 @@ input[type='radio'] {
 }
 
 .main > div {
+  margin: 0 auto 50px;
+}
+
+.main > div > div {
   display: flex;
   gap: 100px;
 }
 
-.main > div > div {
+.main > div > div > div {
   width: 50%;
+}
+
+.portfolio {
+  background-image: url('https://hnry.co.nz/img/hero/Hnry-Gradient-Background.jpg');
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: 50% 50%;
 }

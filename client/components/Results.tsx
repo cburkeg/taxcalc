@@ -91,7 +91,11 @@ function Results({
 
   const studentLoanContributions =
     studentLoan == 'yes' && netIncome >= studentLoanThreshold
-      ? round(studentLoanRate * (netIncome - studentLoanThreshold), 2)
+      ? round(
+          studentLoanRate *
+            (selfIncome + otherIncome - expenses - studentLoanThreshold),
+          2,
+        )
       : 0
 
   let earnerLevy = 0
@@ -141,7 +145,7 @@ function Results({
             })}{' '}
             {netIncome < studentLoanThreshold && (
               <p>
-                (your net income is below the repayment threshold of $
+                (your self-employed income is below the repayment threshold of $
                 {studentLoanThreshold.toLocaleString('en-NZ', {
                   style: 'currency',
                   currency: 'NZD',
