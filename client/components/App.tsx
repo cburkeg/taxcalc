@@ -242,7 +242,10 @@ function App() {
         <div className="footer">
           <div>
             <h1>Go on, do it!</h1>
-            <p>Get in touch with me!</p>
+            <p>
+              Get in touch with me! I&apos;d love to help you remove barriers
+              for sole traders!
+            </p>
             <div className="icons">
               <a
                 href="https://github.com/cburkeg/"
